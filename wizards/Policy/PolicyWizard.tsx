@@ -1,4 +1,4 @@
-import { Alert, Button, Stack, Text, Title } from '@patternfly/react-core'
+import { Alert, Button, Content, Stack, Title } from '@patternfly/react-core'
 import { ExternalLinkAltIcon } from '@patternfly/react-icons'
 import get from 'get-value'
 import { klona } from 'klona/json'
@@ -328,7 +328,7 @@ export function PolicyWizardTemplates(props: { policies: IResource[] }) {
                 <WizHidden hidden={(template: any) => template?.objectDefinition?.kind !== 'ConfigurationPolicy'}>
                     <div>
                         <Title headingLevel="h6">Configuration Policy</Title>
-                        <Text component="small">A configuration policy creates configuration objects on managed clusters.</Text>
+                        <Content component="small">A configuration policy creates configuration objects on managed clusters.</Content>
                     </div>
 
                     <WizTextInput
@@ -454,7 +454,7 @@ function ObjectTemplate() {
         <Fragment>
             <WizHidden hidden={(template: any) => template?.complianceType === undefined}>
                 <Stack>
-                    <Text component="small">
+                    <Content component='small'>
                         {template?.complianceType === 'musthave'
                             ? 'Must have'
                             : template?.complianceType === 'mustonlyhave'
@@ -462,7 +462,7 @@ function ObjectTemplate() {
                             : template?.complianceType === 'mustnothave'
                             ? 'Must not have'
                             : template?.complianceType}
-                    </Text>
+                    </Content>
                     <WizHidden hidden={(template: any) => template?.objectDefinition?.kind === undefined}>
                         <Title headingLevel="h6">{pascalCaseToSentenceCase(template?.objectDefinition?.kind)}</Title>
                     </WizHidden>
@@ -620,7 +620,7 @@ function PolicyPolicySets() {
                             : 'This policy is placed by the policy sets: '}
                         <b>{policySets.join(', ')}</b>
                     </p>
-                    <p className="pf-v5-c-form__helper-text">
+                    <p className="pf-v6-c-form__helper-text">
                         Only add placement to this policy if you want it to be placed in addition to the policy set placement.
                     </p>
                 </Alert>

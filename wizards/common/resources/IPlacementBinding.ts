@@ -1,3 +1,4 @@
+/* Copyright Contributors to the Open Cluster Management project */
 import { IResource } from '../../../src/common/resource'
 
 export const PlacementBindingApiGroup = 'policy.open-cluster-management.io'
@@ -13,11 +14,11 @@ A slice of PlacementDecisions with label cluster.open-cluster-management.io/plac
 If a ManagedCluster is selected and added into the PlacementDecisions, other components may apply workload on it; once it is removed from the PlacementDecisions, the workload applied on this ManagedCluster should be evicted accordingly.
 */
 export type IPlacementBinding = IResource & {
-    // spec?: {}
+  // spec?: {}
 }
 
 export interface IPlacementSubject {
-    name?: string
-    kind?: string
-    apiGroup?: string
+  name?: string
+  kind?: string
+  apiGroup?: string
 }

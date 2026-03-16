@@ -9,6 +9,7 @@ import {
     CardHeader,
     CardTitle,
     Checkbox,
+    Content,
     Drawer,
     DrawerContent,
     DrawerContentBody,
@@ -22,13 +23,11 @@ import {
     LabelGroup,
     List,
     ListItem,
-    Page,
     PageSection,
     SearchInput,
     Split,
     SplitItem,
     Stack,
-    Text,
     Title,
 } from '@patternfly/react-core'
 import { CheckIcon } from '@patternfly/react-icons'
@@ -243,10 +242,8 @@ export function Catalog(props: {
                             id={card.id}
                             key={card.id ?? card.title}
                             onClick={card.onClick}
-                            isFlat
                             isLarge
                             isSelectable={card.onClick !== undefined}
-                            isRounded
                             style={{
                                 transition: 'box-shadow 0.25s',
                                 cursor: card.onClick ? 'pointer' : undefined,
@@ -289,9 +286,9 @@ export function Catalog(props: {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 24, height: '100%' }}>
                                     {Array.isArray(card.descriptions) &&
                                         card.descriptions.map((description, index) => (
-                                            <Text component="p" key={index}>
+                                            <Content component="p" key={index}>
                                                 {description}
-                                            </Text>
+                                            </Content>
                                         ))}
                                     {Array.isArray(card.featureGroups) &&
                                         card.featureGroups.map((featureGroup, index) => (
@@ -334,8 +331,8 @@ export function Catalog(props: {
     }, [searchedCards])
 
     return (
-        <Page>
-            <PageSection variant="light" isWidthLimited>
+       <>
+            <PageSection variant="default" isWidthLimited>
                 <Flex style={{ gap: 16 }}>
                     <FlexItem grow={{ default: 'grow' }}>
                         <Stack hasGutter>
@@ -348,7 +345,7 @@ export function Catalog(props: {
                     </FlexItem>
                 </Flex>
             </PageSection>
-            <PageSection variant="light" padding={{ default: 'noPadding' }} isFilled hasOverflowScroll>
+            <PageSection variant="default" padding={{ default: 'noPadding' }} isFilled hasOverflowScroll>
                 <Drawer position="left" isStatic>
                     <DrawerContent panelContent={catalogFilterGroups}>
                         <DrawerContentBody hasPadding>{catalogCards}</DrawerContentBody>
@@ -356,11 +353,11 @@ export function Catalog(props: {
                 </Drawer>
             </PageSection>
             {props.onBack && (
-                <PageSection variant="light" isFilled={false}>
+                <PageSection variant="default" isFilled={false}>
                     <Button onClick={props.onBack}>Back</Button>
                 </PageSection>
             )}
-        </Page>
+       </>
     )
 }
 

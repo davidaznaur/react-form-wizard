@@ -1,5 +1,7 @@
+/* Copyright Contributors to the Open Cluster Management project */
 import '@patternfly/react-core/dist/styles/base.css'
 import '@patternfly/react-styles/css/components/Wizard/wizard.css'
+import '@patternfly/patternfly/patternfly-addons.css';
 import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 
@@ -9,9 +11,9 @@ const div = document.createElement('div')
 document.body.appendChild(div)
 const root = createRoot(div)
 root.render(
-    <StrictMode>
-        <Suspense fallback={<div />}>
-            <Demo />
-        </Suspense>
-    </StrictMode>
+  <StrictMode>
+    <Suspense fallback={<div />}>
+      <Demo />
+    </Suspense>
+  </StrictMode>
 )

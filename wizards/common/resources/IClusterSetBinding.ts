@@ -1,3 +1,4 @@
+/* Copyright Contributors to the Open Cluster Management project */
 import { IResource } from '../../../src/common/resource'
 
 export const ClusterSetBindingApiGroup = 'cluster.open-cluster-management.io'
@@ -6,7 +7,7 @@ export const ClusterSetBindingKind = 'ManagedClusterSetBinding'
 export const ClusterSetBindingType = { apiVersion: ClusterSetBindingApiVersion, kind: ClusterSetBindingKind }
 
 export type IClusterSetBinding = IResource & {
-    spec?: {
-        clusterSet?: string
-    }
+  spec?: {
+    clusterSet?: string
+  }
 }

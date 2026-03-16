@@ -1,9 +1,10 @@
-import { createContext, useContext } from 'react'
-import { EditMode } from './EditMode'
+/* Copyright Contributors to the Open Cluster Management project */
+import { createContext, useContext } from "react";
+import { EditMode } from "./EditMode";
 
-export const EditModeContext = createContext<EditMode>(EditMode.Create)
-EditModeContext.displayName = 'EditModeContext'
+export const EditModeContext = createContext<EditMode>(EditMode.Create);
+EditModeContext.displayName = "EditModeContext";
 
 export function useEditMode() {
-    return useContext(EditModeContext)
+  return useContext(EditModeContext);
 }

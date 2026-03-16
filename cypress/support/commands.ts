@@ -1,3 +1,4 @@
+/* Copyright Contributors to the Open Cluster Management project */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -24,11 +25,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('multiselect', { prevSubject: 'element' }, (subject: JQuery<HTMLElement>, text: string) => {
+Cypress.Commands.add(
+  "multiselect",
+  { prevSubject: "element" },
+  (subject: JQuery<HTMLElement>, text: string) => {
     cy.wrap(subject)
-        .click()
-        .get('.pf-v5-c-check')
-        .contains(text)
-        .parent()
-        .within(() => cy.get('[type="checkbox"]').check())
-})
+      .click()
+      .contains(text)
+      .parent()
+      .within(() => cy.get('[role="option"]').click());
+  }
+);
